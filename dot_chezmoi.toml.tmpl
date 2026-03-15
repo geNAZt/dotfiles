@@ -1,0 +1,12 @@
+[data]
+    email = "jonassen.fabian@gmail.com"
+    name = "Fabian Jonassen"
+
+[onepassword]
+    mode = "account"
+    # In 2026, we prefer the 'op' CLI integration
+    prompt = true
+
+# This ensures chezmoi uses the 1Password CLI for secrets
+[secret]
+    command = "op"
