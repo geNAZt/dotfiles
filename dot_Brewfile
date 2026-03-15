@@ -66,3 +66,5 @@ cask "temurin"
 cask "wireshark-app"
 # Multiplayer code editor
 cask "zed"
+# Gecko based web browser
+cask "zen"
