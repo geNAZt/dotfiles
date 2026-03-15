@@ -1,0 +1,18 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+# Ghostty Terminfo Fix
+# hash: {{ include "dot_config/ghostty/config" | sha256sum }}
+
+echo "👻 Running Ghostty terminfo sync..."
+
+if command -v ghostty &> /dev/null; then
+    # Generate the terminfo and compile it for sudo/root
+    # This prevents the "ncurses: cannot initialize terminal" error
+    ghostty +show-config --default-terminfo > /tmp/ghostty.terminfo
+    sudo tic -xe xterm-ghostty /tmp/ghostty.terminfo
+    echo "✅ Ghostty terminfo compiled for root."
+else
+    echo "⚠️ Ghostty not found, skipping terminfo sync."
+fi
+{{ end -}}

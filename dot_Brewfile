@@ -1,0 +1,45 @@
+# Taps
+tap "hashicorp/tap"
+tap "fluxcd/tap"
+tap "homebrew/bundle"
+
+# --- CORE TERMINAL & SHELL ---
+brew "chezmoi"          # Essential for your setup repo 
+brew "starship"         # Fast, cross-shell prompt
+brew "btop"             # Modern resource monitor for Apple Silicon 
+brew "fzf"              # Fuzzy search
+brew "gh"               # GitHub CLI
+brew "lazygit"          # Terminal UI for Git
+brew "zplug"            # Plugin management
+
+# --- DEVOPS & INFRASTRUCTURE ---
+brew "kubernetes-cli"   # kubectl
+brew "k9s"              # K8s terminal UI [cite: 5]
+brew "helm"             # K8s package manager
+brew "stern"            # Log tailing
+brew "fluxcd/tap/flux"  # GitOps automation 
+brew "hashicorp/tap/terraform" # Infrastructure as Code
+brew "tilt"             # Local Kubernetes development [cite: 9]
+brew "yq"               # YAML processor
+brew "jq"               # JSON processor
+
+# --- CLOUD & VIRTUALIZATION ---
+cask "orbstack"         # Fast Docker/K8s alternative (Perfect for Air)
+cask "gcloud-cli"       # GCP SDK
+
+# --- LANGUAGES & RUNTIMES ---
+brew "go"               # [cite: 4]
+brew "node"             # [cite: 6]
+brew "python@3.12"      # Standardized Python version
+cask "temurin"          # Native OpenJDK for macOS 
+
+# --- SECURITY (1Password Integration) ---
+cask "1password"        # 
+cask "1password-cli"    # For Chezmoi secret injection 
+brew "gnupg"            # GPG signing
+
+# --- THE "ZED" GUI TOOLBELT ---
+cask "zed"              # High-performance code editor (Replaces VS Code)
+cask "ghostty"          # Native GPU-accelerated terminal 
+cask "bruno"            # Fast API client (Open-source Postman alternative)
+cask "wireshark-app"    # Network analysis [cite: 11]
