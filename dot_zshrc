@@ -134,8 +134,6 @@ export PATH="/opt/homebrew/opt/node@18/bin:$PATH"
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 export JAVA_HOME=$(/usr/libexec/java_home -v 23)
-eval "$(logcli --completion-script-zsh)"
-
 
 export ZPLUG_HOME=$(brew --prefix)/opt/zplug
 source $ZPLUG_HOME/init.zsh
