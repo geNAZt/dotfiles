@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Configuration from your plist
+BUNDLE_NAME="pc-win-de-keyboard.bundle"
+LAYOUT_ID="org.sil.ukelele.keyboardlayout.pc-win-de-keyboard.german-pc"
+LAYOUT_NAME="German - PC"
+
+LOCAL_PATH="$HOME/.config/keyboard-layouts/$BUNDLE_NAME"
+SYSTEM_PATH="/Library/Keyboard Layouts/$BUNDLE_NAME"
+
+echo "⌨️  Starting secure keyboard layout installation..."
+
+if [ ! -d "$LOCAL_PATH" ]; then
+    echo "❌ Error: $BUNDLE_NAME not found in home. Check Chezmoi sync."
+    exit 0
+fi
+
+# 1. Install to System with correct root permissions
+echo "🔐 Installing to /Library (Password required)..."
+sudo cp -R "$LOCAL_PATH" "$SYSTEM_PATH"
+sudo chown -R root:wheel "$SYSTEM_PATH"
+sudo chmod -R 755 "$SYSTEM_PATH"
+
+# 2. Force macOS to enable and select the layout
+# We use the specific ID and Name found in your Info.plist
+echo "🎯 Selecting '$LAYOUT_NAME' as the primary layout..."
+
+# Enable the layout
+defaults write com.apple.HIToolbox AppleEnabledInputSources -array-add \
+'{ "InputSourceKind" = "Keyboard Layout"; "KeyboardLayout ID" = 0; "KeyboardLayout Name" = "'"$LAYOUT_NAME"'"; "BundleID" = "org.sil.ukelele.keyboardlayout.pc-win-de-keyboard"; }'
+
+# Set as active
+defaults write com.apple.HIToolbox AppleSelectedInputSources -array \
+'{ "InputSourceKind" = "Keyboard Layout"; "KeyboardLayout ID" = 0; "KeyboardLayout Name" = "'"$LAYOUT_NAME"'"; "BundleID" = "org.sil.ukelele.keyboardlayout.pc-win-de-keyboard"; }'
+
+# 3. Clear Language Caches for Login Screen
+echo "🧹 Nuking system input caches..."
+sudo touch "/Library/Keyboard Layouts"
+sudo rm -f /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/C/com.apple.IntlDataCache*
+
+echo "✅ Done! Reboot your MacBook Air to finalize the login screen setup."

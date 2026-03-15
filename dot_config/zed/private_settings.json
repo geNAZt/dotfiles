@@ -1,0 +1,17 @@
+{
+  "theme": "macOS Classic Dark",
+  "auto_install_extensions": {
+    "dockerfile": true,
+    "git-firefly": true,
+    "html": true,
+    "java": true,
+    "jinja2": true,
+    "log": true,
+    "macos-classic": true,
+    "markdown-oxide": true,
+    "terraform": true,
+    "toml": true,
+    "xml": true,
+    "zedokai": true
+  }
+}

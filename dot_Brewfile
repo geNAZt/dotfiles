@@ -1,45 +1,128 @@
-# Taps
-tap "hashicorp/tap"
 tap "fluxcd/tap"
-tap "homebrew/bundle"
-
-# --- CORE TERMINAL & SHELL ---
-brew "chezmoi"          # Essential for your setup repo 
-brew "starship"         # Fast, cross-shell prompt
-brew "btop"             # Modern resource monitor for Apple Silicon 
-brew "fzf"              # Fuzzy search
-brew "gh"               # GitHub CLI
-brew "lazygit"          # Terminal UI for Git
-brew "zplug"            # Plugin management
-
-# --- DEVOPS & INFRASTRUCTURE ---
-brew "kubernetes-cli"   # kubectl
-brew "k9s"              # K8s terminal UI [cite: 5]
-brew "helm"             # K8s package manager
-brew "stern"            # Log tailing
-brew "fluxcd/tap/flux"  # GitOps automation 
-brew "hashicorp/tap/terraform" # Infrastructure as Code
-brew "tilt"             # Local Kubernetes development [cite: 9]
-brew "yq"               # YAML processor
-brew "jq"               # JSON processor
-
-# --- CLOUD & VIRTUALIZATION ---
-cask "orbstack"         # Fast Docker/K8s alternative (Perfect for Air)
-cask "gcloud-cli"       # GCP SDK
-
-# --- LANGUAGES & RUNTIMES ---
-brew "go"               # [cite: 4]
-brew "node"             # [cite: 6]
-brew "python@3.12"      # Standardized Python version
-cask "temurin"          # Native OpenJDK for macOS 
-
-# --- SECURITY (1Password Integration) ---
-cask "1password"        # 
-cask "1password-cli"    # For Chezmoi secret injection 
-brew "gnupg"            # GPG signing
-
-# --- THE "ZED" GUI TOOLBELT ---
-cask "zed"              # High-performance code editor (Replaces VS Code)
-cask "ghostty"          # Native GPU-accelerated terminal 
-cask "bruno"            # Fast API client (Open-source Postman alternative)
-cask "wireshark-app"    # Network analysis [cite: 11]
+tap "hashicorp/tap"
+# Resource monitor. C++ version and continuation of bashtop and bpytop
+brew "btop"
+# Manage your dotfiles across multiple diverse machines, securely
+brew "chezmoi"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# GitHub command-line tool
+brew "gh"
+# Git extension for versioning large files
+brew "git-lfs"
+# GNU Privacy Guard (OpenPGP)
+brew "gnupg"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+# Kubernetes package manager
+brew "helm"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Kubernetes CLI To Manage Your Clusters In Style!
+brew "k9s"
+# Kubernetes command-line interface
+brew "kubernetes-cli"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node"
+# Cloud native development platform
+brew "pulumi"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.12"
+# Cross-shell prompt for astronauts
+brew "starship"
+# Tail multiple Kubernetes pods & their containers
+brew "stern"
+# Define your dev environment as code. For microservice apps on Kubernetes
+brew "tilt"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Executes a program periodically, showing output fullscreen
+brew "watch"
+# Internet file retriever
+brew "wget"
+# Process YAML, JSON, XML, CSV and properties documents from the CLI
+brew "yq"
+# Next-generation plugin manager for zsh
+brew "zplug"
+# Flux CLI
+brew "fluxcd/tap/flux"
+# Terraform
+brew "hashicorp/tap/terraform"
+# Password manager that keeps all passwords secure behind one password
+cask "1password"
+# Command-line interface for 1Password
+cask "1password-cli"
+# Set of tools to manage resources and applications hosted on Google Cloud
+cask "gcloud-cli"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
+# Replacement for Docker Desktop
+cask "orbstack"
+# Move and resize windows using keyboard shortcuts or snap areas
+cask "rectangle"
+# JDK from the Eclipse Foundation (Adoptium)
+cask "temurin"
+# Network protocol analyzer
+cask "wireshark-app"
+# Multiplayer code editor
+cask "zed"
+vscode "4ops.packer"
+vscode "bierner.markdown-mermaid"
+vscode "casualjim.gotemplate"
+vscode "charliermarsh.ruff"
+vscode "disroop.conan"
+vscode "docker.docker"
+vscode "esbenp.prettier-vscode"
+vscode "github.copilot-chat"
+vscode "github.vscode-github-actions"
+vscode "golang.go"
+vscode "google.gemini-cli-vscode-ide-companion"
+vscode "google.geminicodeassist"
+vscode "hashicorp.terraform"
+vscode "monokai.theme-monokai-pro-vscode"
+vscode "ms-azuretools.vscode-containers"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-python.debugpy"
+vscode "ms-python.python"
+vscode "ms-python.vscode-pylance"
+vscode "ms-python.vscode-python-envs"
+vscode "ms-vscode-remote.remote-containers"
+vscode "ms-vscode.cmake-tools"
+vscode "ms-vscode.cpp-devtools"
+vscode "ms-vscode.cpptools"
+vscode "ms-vscode.cpptools-extension-pack"
+vscode "ms-vscode.cpptools-themes"
+vscode "redhat.java"
+vscode "rust-lang.rust-analyzer"
+vscode "ryanolsonx.solarized"
+vscode "terrastruct.d2"
+vscode "tomoki1207.pdf"
+vscode "twxs.cmake"
+vscode "vmware.vscode-spring-boot"
+vscode "vscjava.vscode-gradle"
+vscode "vscjava.vscode-java-debug"
+vscode "vscjava.vscode-java-dependency"
+vscode "vscjava.vscode-java-pack"
+vscode "vscjava.vscode-java-test"
+vscode "vscjava.vscode-maven"
+vscode "vscjava.vscode-spring-boot-dashboard"
+vscode "yzhang.markdown-all-in-one"
+go "github.com/dkorunic/betteralign/cmd/betteralign"
+go "github.com/spf13/cobra-cli"
+go "github.com/go-delve/delve/cmd/dlv"
+go "github.com/mailru/easyjson/easyjson"
+go "fyne.io/fyne/v2/cmd/fyne"
+go "golang.org/x/tools/gopls"
+go "google.golang.org/protobuf/cmd/protoc-gen-go"
+go "google.golang.org/grpc/cmd/protoc-gen-go-grpc"
+go "github.com/mlafeldt/roxor"
+go "honnef.co/go/tools/cmd/staticcheck"
+go "github.com/orijtech/structslop/cmd/structslop"
+go "go.k6.io/xk6/cmd/xk6"
+go "github.com/aicdev/xor-cracker"
+cargo "cargo-bundle"
+cargo "cargo-minify"
+cargo "cargo-watch"
+cargo "fd-find"
+cargo "ripgrep"
+cargo "wasm-pack"
