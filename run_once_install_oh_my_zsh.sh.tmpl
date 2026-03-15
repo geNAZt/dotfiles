@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Define the installation directory
+OMZ_DIR="$HOME/.oh-my-zsh"
+
+if [ ! -d "$OMZ_DIR" ]; then
+    echo "Installing Oh My Zsh (Unattended)..."
+
+    # Use the --unattended flag to prevent it from:
+    # 1. Changing your default shell
+    # 2. Overwriting your existing .zshrc
+    # 3. Running zsh immediately after install
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
+    echo "✓ Oh My Zsh installed to $OMZ_DIR"
+else
+    echo "✓ Oh My Zsh is already installed."
+fi

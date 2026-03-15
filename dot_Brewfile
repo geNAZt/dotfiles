@@ -68,3 +68,5 @@ cask "wireshark-app"
 cask "zed"
 # Gecko based web browser
 cask "zen"
+brew "zsh-autosuggestions"
+brew "zsh-syntax-highlighting"
